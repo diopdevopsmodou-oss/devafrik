@@ -1,0 +1,314 @@
+:root {
+  --b: #1e4fd8;
+  --bd: #143a9c;
+  --bl: #eaf1ff;
+  --bg: #f6f9ff;
+  --card: #fff;
+  --t: #0f1b3d;
+  --m: #5b6b92;
+  --ln: #d6e2fb;
+  --bug: #c62828;
+  --ok: #1b7f4b;
+  --code: #0f1b3d;
+  --codet: #dbe7ff;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top,0px);
+  padding-bottom: env(safe-area-inset-bottom,0px);
+}
+
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1430;
+    --card: #121f45;
+    --t: #eaf0ff;
+    --m: #9fb0d8;
+    --ln: #24376b;
+    --bl: #172a5c;
+    --b: #4f7cff;
+    --bd: #3a63e0;
+    --bug: #ff7a7a;
+    --ok: #58d492;
+    --code: #070d20;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b1430;
+  --card: #121f45;
+  --t: #eaf0ff;
+  --m: #9fb0d8;
+  --ln: #24376b;
+  --bl: #172a5c;
+  --b: #4f7cff;
+  --bd: #3a63e0;
+  --bug: #ff7a7a;
+  --ok: #58d492;
+  --code: #070d20;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top,0px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--t);
+  font-family: Tinos,"Times New Roman",serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+h1,h2,h3,button,label,.tag,.chip {
+  font-weight: 700;
+}
+
+header {
+  background: var(--b);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.bar {
+  max-width: 980px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0;
+  flex: 1;
+}
+
+.who {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid var(--b);
+  background: var(--b);
+  color: #fff;
+  padding: 8px 16px;
+}
+
+button:hover {
+  background: var(--bd);
+  border-color: var(--bd);
+}
+
+button.alt {
+  background: transparent;
+  color: var(--b);
+}
+
+button.alt:hover {
+  background: var(--bl);
+}
+
+header button {
+  background: #fff;
+  color: #143a9c;
+  border-color: #fff;
+}
+
+header button:hover {
+  background: #eaf1ff;
+}
+
+main {
+  max-width: 980px;
+  margin: auto;
+  padding: 16px;
+}
+
+.tools {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.tools .full {
+  grid-column: 1/-1;
+}
+
+input,select,textarea {
+  font: inherit;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--ln);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--t);
+}
+
+input:focus,select:focus,textarea:focus,button:focus-visible {
+  outline: 3px solid var(--b);
+  outline-offset: 1px;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+textarea.code {
+  font-family: ui-monospace,Consolas,monospace;
+  font-size: 14px;
+  min-height: 110px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tabs .sp {
+  flex: 1;
+}
+
+.chip {
+  padding: 6px 14px;
+  border-radius: 99px;
+  border: 2px solid var(--ln);
+  background: var(--card);
+  color: var(--t);
+  cursor: pointer;
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--b);
+  border-color: var(--b);
+  color: #fff;
+}
+
+.card {
+  background: var(--card);
+  border: 2px solid var(--ln);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.card h3 {
+  margin: 6px 0;
+  font-size: 21px;
+}
+
+.meta {
+  color: var(--m);
+  font-size: 15px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 14px;
+  padding: 2px 10px;
+  border-radius: 6px;
+  background: var(--bl);
+  color: var(--b);
+  margin-right: 6px;
+}
+
+.tag.bug {
+  color: var(--bug);
+}
+
+.tag.ok {
+  color: var(--ok);
+}
+
+pre {
+  background: var(--code);
+  color: var(--codet);
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.row button {
+  padding: 5px 12px;
+  font-size: 15px;
+}
+
+.com {
+  border-left: 4px solid var(--ln);
+  padding: 4px 12px;
+  margin: 10px 0;
+}
+
+.com p {
+  margin: 2px 0;
+}
+
+.empty {
+  text-align: center;
+  color: var(--m);
+  padding: 30px;
+}
+
+dialog {
+  border: 2px solid var(--b);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--t);
+  width: min(520px,94vw);
+  padding: 20px;
+}
+
+dialog::backdrop {
+  background: rgba(10,20,60,.55);
+}
+
+dialog h2 {
+  margin: 0 0 10px;
+}
+
+dialog label {
+  display: block;
+  margin: 10px 0 4px;
+}
+
+.err {
+  color: var(--bug);
+  font-weight: 700;
+  min-height: 1.4em;
+}
+
+.hint {
+  font-size: 14px;
+  color: var(--m);
+}
+
+.txt {
+  white-space: pre-wrap;
+  font-weight: 400;
+}

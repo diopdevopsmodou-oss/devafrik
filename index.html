@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>DevAfrik – Bugs et discussions entre développeurs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="bar">
+<h1 class="logo">DevAfrik</h1>
+<span class="who" id="who"></span>
+<button id="bNew">Publier</button>
+<button id="bAuth">Connexion</button>
+</div></header>
+<main>
+<div class="tools">
+<input class="full" id="q" type="search" maxlength="80" placeholder="Rechercher un bug, un langage, un mot-clé…" aria-label="Rechercher">
+<select id="fPays" aria-label="Filtrer par pays"></select>
+<select id="fLang" aria-label="Trier"><option value="new">Plus récents</option><option value="top">Plus votés</option></select>
+</div>
+<div class="tabs" id="tabs">
+<button class="chip" data-t="all" aria-pressed="true">Tout</button>
+<button class="chip" data-t="bug" aria-pressed="false">Bugs</button>
+<button class="chip" data-t="disc" aria-pressed="false">Discussions</button>
+<span class="sp"></span>
+<button class="alt" id="bTheme" aria-label="Changer de thème">Thème</button>
+</div>
+<div id="list"></div>
+</main>
+
+<dialog id="dAuth">
+<h2 id="aTitle">Connexion</h2>
+<label for="aUser">Pseudo</label><input id="aUser" maxlength="20" autocomplete="username">
+<label for="aPass">Mot de passe</label><input id="aPass" type="password" maxlength="64" autocomplete="current-password">
+<div id="aPaysBox" hidden><label for="aPays">Pays</label><select id="aPays"></select></div>
+<p class="hint" id="aHint">3 à 20 caractères : lettres, chiffres, _ ou -. Mot de passe : 8 caractères minimum.</p>
+<div class="err" id="aErr" role="alert"></div>
+<div class="row"><button id="aGo">Se connecter</button><button class="alt" id="aSw">Créer un compte</button><button class="alt" id="aX">Fermer</button></div>
+</dialog>
+
+<dialog id="dNew">
+<h2>Nouvelle publication</h2>
+<label for="nType">Type</label><select id="nType"><option value="bug">Bug</option><option value="disc">Discussion</option></select>
+<label for="nTitle">Titre</label><input id="nTitle" maxlength="120">
+<label for="nDesc">Description</label><textarea id="nDesc" maxlength="2000"></textarea>
+<label for="nLang">Langage ou technologie</label><input id="nLang" maxlength="30" placeholder="Flutter, Spring Boot, PHP…">
+<label for="nCode">Code (facultatif)</label><textarea class="code" id="nCode" maxlength="4000" spellcheck="false"></textarea>
+<div class="err" id="nErr" role="alert"></div>
+<div class="row"><button id="nGo">Publier</button><button class="alt" id="nX">Annuler</button></div>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
